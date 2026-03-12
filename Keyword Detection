@@ -1,0 +1,56 @@
+#Step 1 - Download SPAMTrain.label, TRAINING.zip, and TESTING.zip from Canvas under the "Supervised Learning" module
+#Step 2 - Put these folders into a directory, which you will point to below. 
+
+
+#Loading the Training Emails
+#this is pointing to the directory "TRAINING" on my computer. You'll have to change this 
+#according to where your "TRAINING" folder is.
+training_directory <- "/Users/Hong/Desktop/Machine_Learning/TRAINING"
+
+#Now load training and test files from the SPAM data set
+training_names <- list.files(training_directory) #this should be a vector of length 4327
+
+#next, load each email using the above file.names
+training_emails <- list()
+setwd(training_directory)
+
+for(i in 1:length(training_names)){
+  training_emails[[i]] <- readLines(training_names[i]) #each list entry contains the text of the email
+}
+
+#just as an example, let's look at the first email
+training_emails[[1]]
+#install and load package for easy text analysis
+install.packages("stringr")
+library(stringr)
+
+#now you can start to identify key words in these emails that are often associated with
+#spam emails. As an example, let's count the number of times that the word "explosive" comes up in the 2nd message
+SpamStrings <- c("This", "that", "me", "you")
+fitsmatrix <- NULL
+for (k in 1:4){
+  fitsvector <- numeric()
+  for(i in 1:length(training_emails)){  
+    fits <- sum(str_count(training_emails[[i]], SpamStrings[k]))
+    if (fits == 0){
+      fits = 0
+    } else {
+      fits = 1
+    }
+    fitsvector <- c(fitsvector, fits)
+  }
+  fitsmatrix <- cbind(fitsmatrix, fitsvector)
+}
+#You will use the above type of search to create a matrix of 20 or more binary
+#variables to build into your classifier.
+
+#So your task now is the build a matrix of 20 or more columns that is useful for 
+#classifying emails as SPAM or HAM according to your labels below
+
+#Training labels for these emails
+#make sure the directory below points to the SPAMTrain.label file
+labels <- read.table("/Users/Hong/Desktop/Machine_Learning/SPAMTrain.label")
+
+#the first column of labels is 1 if it is a SPAM email and 0 if it is not (i.e., it is HAM)
+#Build a classifier based on these labels.
+#Now you can run with your Naive Bayes classifier!
