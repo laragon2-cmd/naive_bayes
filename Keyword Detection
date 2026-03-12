@@ -24,8 +24,8 @@ training_emails[[1]]
 install.packages("stringr")
 library(stringr)
 
-#now you can start to identify key words in these emails that are often associated with
-#spam emails. As an example, let's count the number of times that the word "explosive" comes up in the 2nd message
+#Change words within SpamString to look for different keywords
+#Change the number of loops depending on number of keywords
 SpamStrings <- c("This", "that", "me", "you")
 fitsmatrix <- NULL
 for (k in 1:4){
@@ -41,8 +41,7 @@ for (k in 1:4){
   }
   fitsmatrix <- cbind(fitsmatrix, fitsvector)
 }
-#You will use the above type of search to create a matrix of 20 or more binary
-#variables to build into your classifier.
+#fitsmatrix will consist of 0 and 1s depending on whether the keyword is found at least once or not.
 
 #So your task now is the build a matrix of 20 or more columns that is useful for 
 #classifying emails as SPAM or HAM according to your labels below
