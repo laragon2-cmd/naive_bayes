@@ -1,0 +1,62 @@
+﻿Naive Bayes Assignment Checklist
+Done
+	Assignment item
+	☐
+	Download SPAMTrain.label, TRAINING.zip, and TESTING.zip from Canvas.
+	☐
+	Extract the files and make sure the script can access the TRAINING folder and the label file.
+	☐
+	Use the provided email dataset from the assignment, not personal emails.
+	☐
+	Remember the dataset labels: 1 = HAM and 0 = SPAM.
+	☐
+	Create 20 or more binary features from the email text.
+	☐
+	Build the feature matrix X from the TRAINING emails.
+	☐
+	Load the training labels from SPAMTrain.label.
+	☐
+	Make sure the number of rows in X matches the number of labels in Y.
+	☐
+	Split the labeled training data into training and testing sets using train_test_split().
+	☐
+	Compute the prior probabilities for each class.
+	☐
+	Compute the class-conditional probabilities for each binary feature.
+	☐
+	Write the Naive Bayes classifier function.
+	☐
+	Compute the posterior probabilities for at least one observation.
+	☐
+	Output the predicted class for that observation.
+	☐
+	Predict the class for every observation in the training set.
+	☐
+	Compute the misclassification rate on the training set.
+	☐
+	Predict the class for every observation in the held-out testing split.
+	☐
+	Compute the misclassification rate on the testing split.
+	☐
+	Build the consensus matrix: TP, TN, FP, FN.
+	☐
+	Decide which class is treated as the positive class in the consensus matrix.
+	☐
+	Print all required outputs clearly: priors, class-conditionals, posterior probabilities, predicted classes, misclassification rate, and consensus matrix.
+	☐
+	Double-check that the final .py file contains only Python code with no R code, notebook JSON, or duplicate functions.
+	 
+Progress check
+* Data paths work
+* X loads
+* Y loads
+* Shapes match
+* Priors print
+* Class-conditional probabilities print
+* Classifier function runs
+* Posterior for one observation prints
+* Predictions for all training rows
+* Training error
+* Test-split predictions
+* Test-split error
+* TP / TN / FP / FN
