@@ -118,7 +118,7 @@ The actual classes on testing split:
 
 Naive Bayes Error on testing split: 0.21016166281755197
 
-Consensus matrix counts:
+Consensus matrix counts:/n
 TP = 161
 TN = 523
 FP = 43
