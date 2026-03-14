@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 
-
+#features
 keywords = [
     "free","money","offer","click","win","prize","buy",
     "urgent","cash","credit","loan","limited","deal",
@@ -11,6 +11,7 @@ keywords = [
     "viagra","explosive"
 ]
 
+#extracting keywords function
 def extract_features(folder):
     X = []
     files = sorted(os.listdir(folder))
